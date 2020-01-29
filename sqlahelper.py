@@ -1,7 +1,7 @@
 import sqlalchemy as sa
 import sqlalchemy.ext.declarative as declarative
 import sqlalchemy.orm as orm
-from zope.sqlalchemy import ZopeTransactionExtension
+from zope.sqlalchemy import ZopeTransactionEvents
 
 # Import only version 1 API with "import *"
 __all__ = ["add_engine", "get_base", "get_session", "get_engine"]
@@ -17,7 +17,7 @@ engines = AttributeContainer()
 bases = AttributeContainer()
 sessions = AttributeContainer()
 
-_zte = ZopeTransactionExtension()
+_zte = ZopeTransactionEvents()
 
 def set_default_engine(engine):
     engines.default = engine
@@ -68,7 +68,7 @@ def get_session():
         sqlahelper.get_session().configure(...)
 
     But if you do this, be careful about the 'ext' arg. If you pass it, the
-    ZopeTransactionExtension will be disabled and you won't be able to use this
+    ZopeTransactionEvents will be disabled and you won't be able to use this
     contextual session with transaction managers. To keep the extension active
     you'll have to re-add it as an argument. The extension is accessible under
     the semi-private variable ``_zte``. Here's an example of adding your own

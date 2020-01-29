@@ -134,7 +134,7 @@ class TestDeclarativeBase(SQLAHelperTestCase):
         barney = Person(id=3, first_name=u"Barney", last_name=u"Rubble")
         betty = Person(id=4, first_name=u"Betty", last_name=u"Rubble")
         Session = sqlahelper.get_session()
-        Session.configure(extension=None)  # XXX Kludge for SQLAlchemy/ZopeTransactionExtension bug
+        Session.configure(extension=None)  # XXX Kludge for SQLAlchemy/ZopeTransactionEvents bug
         sess = Session()
         sess.add_all([fred, wilma, barney, betty])
         sess.commit()

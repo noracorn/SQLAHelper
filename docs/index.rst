@@ -14,7 +14,7 @@ session, base, and transaction. SQLAHelper does not try to hide or disguise the
 underlying SQLAlchemy objects; it merely provides a way to organize them.
 
 The contextual session is initialized with the popular
-ZopeTransactionExtension, which allows it to work with transaction managers
+ZopeTransactionEvents, which allows it to work with transaction managers
 like pyramid_tm_ and repoze.tm2_. A transaction manager provides automatic
 commit at the end of request processing, or rollback if an exception is raised
 or HTTP error status occurs. Some transaction managers can commit both SQL and

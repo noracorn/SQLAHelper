@@ -4,7 +4,7 @@ application's contextual session, engines, and declarative base. This avoids
 circular dependencies between the application's model modules, and allows
 cooperating third-party libraries to use the session, base, and transaction.
 
-The contextual session is initialized with the ZopeTransactionExtension so that
+The contextual session is initialized with the ZopeTransactionEvents so that
 it can be used with transaction managers. This can be disabled if desired.
 
 **SQLAHelper is under a maintenance freeze.**  If you would like to maintain
